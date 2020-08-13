@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6603620870215299966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6603620870215299955}
+  - component: {fileID: 6603620870215299952}
+  - component: {fileID: 6603620870215299953}
+  - component: {fileID: 1131296719}
+  m_Layer: 0
+  m_Name: JUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6603620870215299955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603620870215299966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6603620870215299952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603620870215299966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf36ad917c1675468278513dd81f5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiCamera: {fileID: 0}
+  uiCanvas: {fileID: 0}
+  worldCanvas: {fileID: 0}
+--- !u!114 &6603620870215299953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603620870215299966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880492d216c44ca4eb67905c7f98082a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupCheckWindowPrefab: {fileID: 211146761426331207, guid: 7d2bf5c6cf866d34498ce3fb6ae44f92,
+    type: 3}
+  optionWindowPrefab: {fileID: 1537088101463642596, guid: e800c6148d3795346a85c9042775d825,
+    type: 3}
+  optionButtonPrefab: {fileID: -6910702084768286529, guid: b2c753ec8967d014e8ec021a0e989022,
+    type: 3}
+  dialogWindowPrefab: {fileID: 5830937942275283989, guid: 5533c465a8d949a4880dc3a4f855136e,
+    type: 3}
+  alertWindowPrefab: {fileID: 7229540949375184835, guid: bba157c2363f767458a666a6db741d87,
+    type: 3}
+  noticeWindowPrefab: {fileID: 5467787803825633272, guid: 4ce8a5a7f8573074bb440c5441fac2f8,
+    type: 3}
+  noticeContentPrefab: {fileID: -7862561127881050024, guid: 0c141315f48909b4bbf66cd810ad161d,
+    type: 3}
+  bagWindowPrefab: {fileID: 707085294915842794, guid: fcd151390c412444bae9b739d3c27cf5,
+    type: 3}
+  itemPrefab: {fileID: -3908711604152862486, guid: 38c7742ea0ba3eb4ca79574185c24f7e,
+    type: 3}
+  curtainWindowPrefab: {fileID: -8132855301940048880, guid: 939d80099e30fef479ca07ab2ca7890b,
+    type: 3}
+  floatTextPrefab: {fileID: 6837259877202706643, guid: 4214b2376f8f5cd42a93b460b057bb55,
+    type: 3}
+  trampolinePrefab: {fileID: 5072359325814276975, guid: dae447bf13f008949a1c0bedb1c9bc60,
+    type: 3}
+  barPrefab: {fileID: 6712691497584960390, guid: 814cfe68fad327f48a3f561ac6e32b4f,
+    type: 3}
+  swordMeleePrefab: {fileID: 7906222797502567164, guid: 09b1d15630007d543890e24ba4e721e3,
+    type: 3}
+--- !u!114 &1131296719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603620870215299966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce28d296450ec5b40955e1ff6a03d35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
