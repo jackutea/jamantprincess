@@ -11,6 +11,14 @@ namespace JackUtil {
 
     public static class TilemapExtention {
 
+        public static Vector2Int GetMouseTilePos(this Tilemap _tileMap, Vector2 _worldMousePos) {
+
+            Vector2Int _pos = (Vector2Int)_tileMap.WorldToCell(_worldMousePos);
+
+            return _pos;
+
+        }
+
         public static string[,] ToStringArray(this Tilemap _tileMap, BoundsInt _bounds) {
 
             Vector3Int _tempPos = Vector3Int.zero;

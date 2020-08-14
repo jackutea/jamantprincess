@@ -16,6 +16,10 @@ namespace Jam {
 
         }
 
+        void IgnoreCollision() {
+
+        }
+
     }
 
 }
