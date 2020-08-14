@@ -6,13 +6,19 @@ namespace Jam {
 
     public class ActorCollision : MonoBehaviour {
 
+        [HideInInspector]
         public Collider2D col;
         public LayerMask groundLayer;
 
+        [HideInInspector]
         public bool isOnGround;
+        [HideInInspector]
         public bool isOnWall;
+        [HideInInspector]
         public bool isOnLeftWall;
+        [HideInInspector]
         public bool isOnRightWall;
+        [HideInInspector]
         public bool isClimbOverPlatform;
 
         public Vector2 bottomOffset, leftOffset, rightOffset, climbUpOffset;

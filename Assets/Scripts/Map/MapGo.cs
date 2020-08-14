@@ -9,7 +9,11 @@ namespace Jam {
 
     public class MapGo : MonoBehaviour {
 
+
+        Camera mainCam;
         Tilemap tilemap;
+
+        public BoundsInt bounds;
 
         protected virtual void Awake() {
 
@@ -19,10 +23,8 @@ namespace Jam {
 
         void Update() {
 
-            Vector2Int _pos = tilemap.GetMouseTilePos(Camera.main.GetMouseWorldPosition(Input.mousePosition));
-
-            print(_pos);
             
+
         }
 
     }

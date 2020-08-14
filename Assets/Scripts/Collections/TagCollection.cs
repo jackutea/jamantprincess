@@ -7,7 +7,7 @@ using JackUtil;
 namespace Jam {
 
     public class TagCollection {
-        
+
     }
     
 }

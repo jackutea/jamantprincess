@@ -5,6 +5,7 @@ namespace Jam {
     public enum StateType {
 
         Idle,
+        Jump,
 
     }
 

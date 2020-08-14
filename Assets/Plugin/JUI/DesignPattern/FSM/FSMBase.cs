@@ -26,6 +26,7 @@ namespace JackUtil {
             isRunning = true;
 
             currentState = _state;
+            // currentState.Enter(actor);
 
         }
 
@@ -57,6 +58,7 @@ namespace JackUtil {
             if (_targetState == null) {
                 DebugUtil.LogError("错误的Enum: " + _enum.ToString());
             }
+            // DebugUtil.Log("进入: " + _enum);
             currentState.Exit(actor);
             currentState = _targetState;
             currentState.Enter(actor);

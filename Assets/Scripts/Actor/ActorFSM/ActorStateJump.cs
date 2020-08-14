@@ -6,14 +6,13 @@ using JackUtil;
 
 namespace Jam {
 
-    public class ActorStateIdle : FSMStateBase<ActorBase> {
+    public class ActorStateJump : FSMStateBase<ActorBase> {
 
-        public override int StateEnum => StateType.Idle.ToInt();
+        public override int StateEnum => StateType.Jump.ToInt();
 
         public override void Enter(ActorBase _actor) {
 
             _actor.allowState = AllowAction.allowMove
-                                + AllowAction.allowJump
                                 + AllowAction.allowFalling
                                 + AllowAction.allowGroundCheck;
 
