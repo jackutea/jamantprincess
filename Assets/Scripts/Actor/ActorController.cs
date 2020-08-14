@@ -26,37 +26,38 @@ namespace Jam {
             castAxis = 0;
         }
 
-        void Update() {
-
-        }
-
         void OnMovement(InputValue _value) {
 
             moveAxis = _value.Get<Vector2>();
+            print("OnMove: " + moveAxis);
 
         }
 
         void OnAct(InputValue _value) {
 
             actAxis = 1;
+            print("OnAct");
 
         }
 
         void OnJump(InputValue _value) {
 
             jumpAxis = _value.Get<float>();
+            print("OnJump: " + jumpAxis);
 
         }
 
         void OnCast(InputValue _value) {
 
             castAxis = 1;
+            print("OnCast");
 
         }
 
         void OnExchange(InputValue _value) {
 
             exchangeAxis = 1;
+            print("OnExchange");
 
         }
 
