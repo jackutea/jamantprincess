@@ -17,13 +17,13 @@ namespace JackUtil {
 
         }
 
-        public void FlyUp(Vector2 _position) {
+        public void FlyUp(Vector2 _position, Color _color) {
 
             RectTransform _rt = GetComponent<RectTransform>();
 
             _rt.position = _position;
 
-            Color _c = Color.red;
+            Color _c = _color;
             _c.a = 0;
 
             text.color = _c;

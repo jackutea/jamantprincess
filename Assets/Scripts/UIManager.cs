@@ -7,19 +7,17 @@ using JackUtil;
 
 namespace Jam {
 
-    public class UIManager : MonoBehaviour {
-
-        static UIManager m_instance;
-        public static UIManager Instance => m_instance;
+    public class UIManager : Singleton<UIManager> {
 
         public Camera uiCamera;
         public Canvas uiCanvas;
+        public Canvas worldCanvas;
 
-        void Awake() {
+        public DialogWindow dialog;
+        
+        protected override void Awake() {
 
-            if (m_instance == null) {
-                m_instance = this;
-            }
+            base.Awake();
 
         }
 

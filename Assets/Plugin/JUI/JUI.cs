@@ -7,16 +7,7 @@ namespace JackUtil {
 
     public class JUI : MonoBehaviour {
 
-        static JUI m_instance;
-        public static JUI Instance { get => m_instance; }
-
-        public Camera uiCamera;
-        public Canvas uiCanvas;
-        public Canvas worldCanvas;
-
         void Awake() {
-
-            m_instance = m_instance ?? this;
 
             DontDestroyOnLoad(gameObject);
 
@@ -57,7 +48,7 @@ namespace JackUtil {
             _popGo.SetTexts(_title, _content);
 
             return _popGo;
-            
+
         }
 
         public static DialogWindow PopupDialog(Canvas _canvas, Sprite _playerSprite, string _playerName, Sprite _npcSprite, string _npcName, Action _endTalkAction) {

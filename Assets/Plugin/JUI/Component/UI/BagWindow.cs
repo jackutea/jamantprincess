@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace JackUtil {
 
-    public class BagWindow : MonoBehaviour {
+    public class BagWindow : WindowBase {
 
         [HideInInspector]
         public SlotGoBase[] itemGoArray;

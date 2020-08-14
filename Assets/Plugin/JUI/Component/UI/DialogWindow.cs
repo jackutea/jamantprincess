@@ -7,7 +7,9 @@ using DG.Tweening;
 
 namespace JackUtil {
 
-    public class DialogWindow : MonoBehaviour {
+    public class DialogWindow : WindowBase {
+
+        public GameObject iconBd;
 
         Sprite leftTalkerSprite;
         Sprite rightTalkerSprite;
@@ -24,6 +26,11 @@ namespace JackUtil {
         public Image icon;
         public Action endTalkAction;
 
+        bool isStaticPos;
+        Vector2 staticPos;
+        Vector2 leftPos;
+        Vector2 rightPos;
+
         Tween contentTween;
 
         void Awake() {
@@ -35,9 +42,13 @@ namespace JackUtil {
             talkerList = new List<string>();
             contentList = new List<string>();
 
+            isStaticPos = true;
+
         }
 
         public void SetTalkerInfo(Sprite _leftTalkerSprite, string _leftTalkerName, Sprite _rightTalkerSprite, string _rightTalkerName, Action _endTalkAction) {
+
+            staticPos = transform.position;
 
             currentIndex = -1;
 
@@ -49,6 +60,24 @@ namespace JackUtil {
             endTalkAction = _endTalkAction;
 
             EventSystem.current.SetSelectedGameObject(gameObject);
+
+        }
+
+        public void SetStaticPos(Vector2 _staticPos) {
+
+            isStaticPos = true;
+
+            staticPos = _staticPos;
+
+        }
+
+        public void FollowPos(Vector2 _leftPos, Vector2 _rightPos) {
+
+            isStaticPos = false;
+
+            leftPos = _leftPos;
+
+            rightPos = _rightPos;
 
         }
 
@@ -90,13 +119,26 @@ namespace JackUtil {
             contentTween = contentText.DOText(content, content.Length * 0.04f);
 
             Sprite _sprite;
+            Vector2 _pos;
             if (talker == leftTalkerName) {
                 _sprite = leftTalkerSprite;
+                _pos = leftPos;
             }  else {
                 _sprite = rightTalkerSprite;
+                _pos = rightPos;
+            }
+
+            if (isStaticPos) {
+                _pos = staticPos;
             }
 
             icon.sprite = _sprite;
+
+            if (_sprite == null) {
+                iconBd.SetActive(false);
+            }
+
+            JudgePos(_pos);
 
         }
 

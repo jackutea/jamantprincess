@@ -54,9 +54,9 @@ namespace JackUtil.Template {
 
                 rig.Jump(_jumpAxis, ref isJump);
 
-                FloatTextGo _text = JUI.PopupFloatText(JUI.Instance.uiCanvas);
+                FloatTextGo _text = JUI.PopupFloatText(JUIDemo.Instance.uiCanvas);
 
-                _text.FlyUp(Camera.main.WorldToScreenPoint(transform.position.ToZ0()));
+                _text.FlyUp(Camera.main.WorldToScreenPoint(transform.position.ToZ0()), Color.red);
 
             }
 

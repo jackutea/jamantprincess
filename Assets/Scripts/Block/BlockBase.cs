@@ -9,6 +9,36 @@ namespace Jam {
 
     public class BlockBase : MonoBehaviour {
 
+        protected virtual void OnMouseEnter() {
+
+            // print("Enter: " + name);
+
+        }
+
+        protected virtual void OnMouseOver() {
+
+            // print("Over: ");
+
+        }
+
+        protected virtual void OnMouseDown() {
+
+            // print("Down: ");
+
+        }
+
+        protected virtual void OnMouseUp() {
+
+            // print("Up: ");
+
+        }
+
+        protected virtual void OnMouseExit() {
+
+            // print("Exit: ");
+
+        }
+
         protected virtual void OnCollisionEnter2D(Collision2D _col) {
 
         }

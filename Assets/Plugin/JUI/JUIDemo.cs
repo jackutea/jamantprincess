@@ -12,6 +12,7 @@ namespace JackUtil {
 
         public Camera uiCamera;
         public Canvas uiCanvas;
+        public Canvas worldCanvas;
 
         public float shakeDuration;
         public float shakeStrengh;
@@ -37,6 +38,8 @@ namespace JackUtil {
             });
             _dialogWindow.AddContent(true, "Hifffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // true为玩家说话
             _dialogWindow.AddContent(false, "there"); // false 为Npc说话
+
+            _dialogWindow.JudgePos(worldCanvas, new Vector2(-3, -3));
 
             _dialogWindow.NextContent(); // 继续对话 通常按某个键后执行它
 

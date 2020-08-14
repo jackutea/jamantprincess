@@ -118,7 +118,7 @@ namespace JackUtil {
 
         public void OnDrag(PointerEventData _e) {
 
-            outPos = rectTransform.ScreenToLocalPosition(Input.mousePosition, JUI.Instance.uiCamera);
+            outPos = rectTransform.ScreenToLocalPosition(Input.mousePosition, _e.enterEventCamera);
             transform.localPosition = outPos;
 
         }
