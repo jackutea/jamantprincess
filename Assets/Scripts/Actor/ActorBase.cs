@@ -298,6 +298,8 @@ namespace Jam {
 
         public virtual void Dead() {
 
+            print("Dead");
+
             App.Instance.ReloadMap();
 
         }

@@ -35,6 +35,8 @@ namespace Jam {
 
         public void ReloadMap() {
 
+            print("ReloadMap");
+
             actor.enabled = false;
             actor.Hide();
 
