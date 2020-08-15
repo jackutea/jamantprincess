@@ -9,6 +9,10 @@ namespace Jam {
 
     public class BlockBase : MonoBehaviour {
 
+        protected virtual void Awake() {
+            
+        }
+
         protected virtual void PlayerEnter(ActorBase _actor) {
 
         }
