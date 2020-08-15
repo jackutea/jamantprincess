@@ -242,7 +242,7 @@ namespace Jam {
             sr.drawMode = SpriteDrawMode.Tiled;
             sr.size = new Vector2(1, _height);
             coll.col.offset = new Vector2(0, _height / 2f);
-            (coll.col as CapsuleCollider2D).size = new Vector2(1, _height);
+            (coll.col as CapsuleCollider2D).size = new Vector2(0.6f, _height * 0.985f);
 
         }
 
@@ -378,7 +378,7 @@ namespace Jam {
                 if (transform.position.y < _map.transform.position.y) {
 
                     Dead();
-                    
+
                 }
 
             }

@@ -123,4 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waiting: {fileID: 21300000, guid: 12b5914f05d6ac9409aa66ec368253d0, type: 3}
   activated: {fileID: 21300000, guid: 3991d4e6898731345a878620414e4424, type: 3}
-  bouncePower: 5
+  bouncePower: 45

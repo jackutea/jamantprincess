@@ -14,6 +14,8 @@ namespace Jam {
 
         protected override void PlayerEnter(ActorBase _actor) {
 
+            _actor.transform.position = new Vector3(_actor.transform.position.x, transform.position.y + 0.4f, _actor.transform.position.z);
+
             _actor.rig.velocity = new Vector2(_actor.rig.velocity.x, bouncePower);
             _actor.EnterState(StateType.ForceJump);
 
