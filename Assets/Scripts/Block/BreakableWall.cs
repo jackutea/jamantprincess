@@ -6,11 +6,19 @@ namespace Jam {
 
     public class BreakableWall : BlockBase {
 
+        public Sprite basic;
+        public Sprite startBreaking;
+        public Sprite failed;
+
+        Sequence action;
+
         bool isEntered;
         public float fadeTime;
         public float reshowWaitTime;
 
         protected override void Awake() {
+
+            base.Awake();
 
             isEntered = false;
 
@@ -19,7 +27,7 @@ namespace Jam {
         protected override void PlayerEnter(ActorBase _actor) {
 
             ReshowThis(_actor);
-            
+
         }
 
         protected override void PlayerStay(ActorBase _actor) {
@@ -34,8 +42,24 @@ namespace Jam {
 
                 isEntered = true;
 
-                Reshow(fadeTime/2f, fadeTime/2f, reshowWaitTime, () => {
-                    isEntered = false;
+                if (action != null) {
+
+                    action.Kill();
+
+                }
+
+                action = DOTween.Sequence();
+                sr.sprite = startBreaking;
+                action.Append(transform.DOShakeRotation(1, 6, 6, 1, false));
+                action.AppendCallback(() => {
+                    sr.sprite = failed;
+                });
+                action.Append(transform.DOShakeRotation(1, 6, 6, 1, false));
+                action.AppendCallback(() => {
+                    Reshow(0, 0, reshowWaitTime, () => {
+                        sr.sprite = basic;
+                        isEntered = false;
+                    });
                 });
 
             }

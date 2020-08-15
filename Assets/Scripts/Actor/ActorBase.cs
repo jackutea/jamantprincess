@@ -216,6 +216,8 @@ namespace Jam {
                 case 0: // 微型
                     _height = 1;
                     sr.sprite = smallBody;
+                    coll.col.offset = new Vector2(0, 0.4f);
+                    (coll.col as CapsuleCollider2D).size = new Vector2(0.6f, 0.76f);
                     jumpSpeed = smallStatus.jumpSpeed;
                     fallingSpeed = smallStatus.fallingSpeed;
                     fallingSpeedMax = smallStatus.fallingSpeedMax;
@@ -224,6 +226,8 @@ namespace Jam {
                 case 1: // 中型
                     _height = 2;
                     sr.sprite = normalBody;
+                    coll.col.offset = new Vector2(0, 0.83f);
+                    (coll.col as CapsuleCollider2D).size = new Vector2(0.6f, 1.55f);
                     jumpSpeed = normalStatus.jumpSpeed;
                     fallingSpeed = normalStatus.fallingSpeed;
                     fallingSpeedMax = normalStatus.fallingSpeedMax;
@@ -241,8 +245,7 @@ namespace Jam {
 
             sr.drawMode = SpriteDrawMode.Tiled;
             sr.size = new Vector2(1, _height);
-            coll.col.offset = new Vector2(0, _height / 2f);
-            (coll.col as CapsuleCollider2D).size = new Vector2(0.6f, _height * 0.985f);
+            
 
         }
 

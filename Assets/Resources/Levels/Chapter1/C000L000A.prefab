@@ -4986,6 +4986,12 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1103582545266113211, guid: c6be40682687cae42b73901fcf4de682,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 96243b364b70c194aac2e0623b48ee75,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6be40682687cae42b73901fcf4de682, type: 3}
 --- !u!4 &4435409707668725622 stripped
@@ -5658,12 +5664,12 @@ PrefabInstance:
     - target: {fileID: 8599274327491267282, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8599274327491267282, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8599274327491267282, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}

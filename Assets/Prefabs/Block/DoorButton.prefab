@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5c6c690609ba5c428a6ae679e7f4309, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 083bc1f9aa6f9f64a802afc9b4037a43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,20 +121,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a85f94c37013084ea8379e2bd61c208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterActions:
+  openActions:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Activated
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
+  closeActions:
+    m_PersistentCalls:
+      m_Calls: []
   isOpened: 0
-  closed: {fileID: 21300000, guid: a5c6c690609ba5c428a6ae679e7f4309, type: 3}
-  opened: {fileID: 21300000, guid: 10a1afc1b489d904e9a5debd3110998c, type: 3}
+  buttonColor: 0
+  inOff: {fileID: 21300000, guid: 96243b364b70c194aac2e0623b48ee75, type: 3}
+  inOn: {fileID: 21300000, guid: bafd08bad33f5e142baa82a66a0910bf, type: 3}
+  redOn: {fileID: 21300000, guid: bafd08bad33f5e142baa82a66a0910bf, type: 3}
+  redOff: {fileID: 21300000, guid: 96243b364b70c194aac2e0623b48ee75, type: 3}
+  greenOn: {fileID: 21300000, guid: 7be811c8dff19334588d2eed2569551b, type: 3}
+  greenOff: {fileID: 21300000, guid: 55cdc2889f13ae047b044a4ca96c1068, type: 3}
+  yellowOn: {fileID: 21300000, guid: 6735c9facf9aa634d97b89745ad7613e, type: 3}
+  yellowOff: {fileID: 21300000, guid: 083bc1f9aa6f9f64a802afc9b4037a43, type: 3}

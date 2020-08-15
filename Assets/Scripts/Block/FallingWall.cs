@@ -11,6 +11,7 @@ namespace Jam {
         public Vector2 fallingDir;
         public float fallingSpeed;
         public float waitTime;
+
         Rigidbody2D rig;
         Vector3 defaultPos;
 
