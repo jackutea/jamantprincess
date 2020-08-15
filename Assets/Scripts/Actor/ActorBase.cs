@@ -253,7 +253,7 @@ namespace Jam {
             //     return false;
             // }
 
-            if (coll.isOnCeiling && coll.isOnGround) {
+            if (coll.isOnCeiling && coll.isOnGround) { 
                 // DebugUtil.Log("上下夹住，不可变身");
                 return false;
             }
