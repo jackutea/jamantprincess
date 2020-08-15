@@ -17,15 +17,15 @@ namespace Jam {
         public string startLevelId;
         Camera mainCam;
 
-        protected override void Awake() {
+        void Start() {
 
-            base.Awake();
+            // base.Awake();
 
             InitMapDic();
 
             mainCam = Camera.main;
             // cameraOffset = new Vector3(23.95f, 13.5f, -10);
-            cameraOffset = new Vector3(15f, 8.5f, -10);
+            cameraOffset = new Vector3(20, 11.25f, -10);
 
             Application.targetFrameRate = 120;
 

@@ -7,7 +7,6 @@ namespace Jam {
     public class Ant : BlockBase {
 
         public bool isFlying;
-        SpriteRenderer sr;
         public Sprite groundAnt;
         public Sprite flyAnt;
 
@@ -18,6 +17,8 @@ namespace Jam {
 
         [ContextMenu("ReAwake")]
         protected override void Awake() {
+
+            base.Awake();
 
             sr = GetComponent<SpriteRenderer>();
             sr.sprite = isFlying ? flyAnt : groundAnt;

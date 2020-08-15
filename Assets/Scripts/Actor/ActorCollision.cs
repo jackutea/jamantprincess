@@ -25,7 +25,7 @@ namespace Jam {
         public float collisionRadius;
         public Vector2 collisionSquareSize;
 
-        void Start() {
+        public void Awake() {
 
             col = GetComponent<Collider2D>();
 

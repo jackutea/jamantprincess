@@ -9,7 +9,13 @@ namespace Jam {
 
     public class BlockBase : MonoBehaviour {
 
+        protected SpriteRenderer sr;
+        Sequence fadeAction;
+        Sequence reshowAction;
+
         protected virtual void Awake() {
+
+            sr = GetComponent<SpriteRenderer>();
             
         }
 
@@ -113,6 +119,48 @@ namespace Jam {
 
             }
             
+        }
+
+        protected virtual void StartFade(float _waitTime, float _duration, Action _fadeActionCallback = null) {
+
+            if (fadeAction != null) {
+
+                fadeAction.Kill();
+
+            }
+
+            fadeAction = DOTween.Sequence();
+
+            fadeAction.AppendInterval(_waitTime);
+            fadeAction.Append(sr.DOFade(0, _duration));
+            fadeAction.AppendCallback(() => {
+                _fadeActionCallback?.Invoke();
+                this.Hide();
+                fadeAction = null;
+            });
+
+        }
+
+        protected virtual void Reshow(float _fadeWaitTime, float _duration, float _reshowWaitTime, Action _reshowActionCallback = null) {
+
+            if (reshowAction != null) {
+
+                reshowAction.Kill();
+
+            }
+
+            StartFade(_fadeWaitTime, _duration, () => {
+                reshowAction = DOTween.Sequence();
+                reshowAction.AppendInterval(_reshowWaitTime);
+                reshowAction.Append(sr.DOFade(1, 0));
+                reshowAction.AppendCallback(() => {
+                    this.Show();
+                    _reshowActionCallback?.Invoke();
+                    reshowAction = null;
+                });
+                
+            });
+
         }
 
     }

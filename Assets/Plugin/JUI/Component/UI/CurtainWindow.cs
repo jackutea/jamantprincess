@@ -34,7 +34,6 @@ namespace JackUtil {
                 curtain.DOFillAmount(0, _openTime);
                 _callback?.Invoke();
                 _action.Kill();
-                _action = null;
             });
 
         }
@@ -56,7 +55,6 @@ namespace JackUtil {
                 curtain.DOFillAmount(0, _openTime);
                 _callback?.Invoke();
                 _action.Kill();
-                _action = null;
             });
 
         }
@@ -78,7 +76,6 @@ namespace JackUtil {
                 curtain.DOFillAmount(0, _openTime);
                 _callback?.Invoke();
                 _action.Kill();
-                _action = null;
             });
 
         }
@@ -100,7 +97,6 @@ namespace JackUtil {
                 curtain.DOFillAmount(0, _openTime);
                 _callback?.Invoke();
                 _action.Kill();
-                _action = null;
             });
 
         }

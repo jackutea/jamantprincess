@@ -91,6 +91,12 @@ namespace Jam {
 
         void OnChangeSmaller(InputValue _value) {
 
+            if (moveAxis.x > 0 && jumpAxis != 0) {
+
+                print("SmallerAxis");
+                
+            }
+
             changeSmallerAxis = 1;
 
         }

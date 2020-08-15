@@ -22,7 +22,6 @@ namespace Jam {
 
         [HideInInspector]
         public ActorController controller;
-        [HideInInspector]
         public ActorCollision coll;
 
         [HideInInspector]
@@ -47,7 +46,15 @@ namespace Jam {
         [HideInInspector]
         public bool isJumping;
 
+        public Status normalStatus;
+        public Status smallStatus;
+        public Status hugeStatus;
+
         public int bodySize;
+
+        public float maxHeight;
+
+        bool allowDebugFalling;
 
         protected virtual void Awake() {
 
@@ -62,6 +69,7 @@ namespace Jam {
 
             controller = GetComponent<ActorController>();
             coll = GetComponent<ActorCollision>();
+            coll.Awake();
 
             rig = GetComponent<Rigidbody2D>();
 
@@ -69,6 +77,7 @@ namespace Jam {
 
             InitValue();
 
+            ChangeBody(1);
 
         }
 
@@ -84,10 +93,14 @@ namespace Jam {
 
         protected virtual void FixedUpdate() {
 
+            if (transform.position.y > maxHeight) {
+                maxHeight = transform.position.y;
+            }
+
             if ((allowState & AllowAction.allowMove) != 0) {
 
-                rig.velocity = new Vector2(10, rig.velocity.y);
-                // Move();
+                // rig.velocity = new Vector2(10, rig.velocity.y);
+                Move();
 
             }
 
@@ -141,37 +154,41 @@ namespace Jam {
             raiseSpeed = 2.0f;
             isJumping = false;
 
+            smallStatus = new Status(0);
+            normalStatus = new Status(1);
+            hugeStatus = new Status(2);
+
         }
 
         public virtual void ListenChangeBody() {
 
-            // Plan-A: Q E
-            // if (controller.changeBiggerAxis != 0) {
-
-            //     if (bodySize >= 2) {
-            //         ChangeBody(0);
-            //     } else {
-            //         ChangeBody(bodySize + 1);
-            //     }
-
-            // } else if (controller.changeSmallerAxis != 0) {
-
-            //     if (bodySize <= 0) {
-            //         ChangeBody(2);
-            //     } else {
-            //         ChangeBody(bodySize - 1);
-            //     }
-
-            // }
-            
-            // Plan-B: Q W E
+            // Plan-A: 2 Keys
             if (controller.changeBiggerAxis != 0) {
-                ChangeBody(2);
+
+                if (bodySize >= 1) {
+                    ChangeBody(0);
+                } else {
+                    ChangeBody(bodySize + 1);
+                }
+
             } else if (controller.changeSmallerAxis != 0) {
-                ChangeBody(0);
-            } else if (controller.changeNormalAxis != 0) {
-                ChangeBody(1);
+
+                if (bodySize <= 0) {
+                    ChangeBody(1);
+                } else {
+                    ChangeBody(bodySize - 1);
+                }
+
             }
+            
+            // Plan-B: 3 Keys
+            // if (controller.changeBiggerAxis != 0) {
+            //     ChangeBody(2);
+            // } else if (controller.changeSmallerAxis != 0) {
+            //     ChangeBody(0);
+            // } else if (controller.changeNormalAxis != 0) {
+            //     ChangeBody(1);
+            // }
 
         }
 
@@ -187,29 +204,29 @@ namespace Jam {
             float _height = 0;
 
             switch(bodySize) {
-                case 1:
-                    _height = 2;
-                    sr.sprite = normalBody;
-                    jumpSpeed = 15.5f;
-                    fallingSpeed = 3.6f;
-                    fallingSpeedMax = 20f;
-                    raiseSpeed = 2.0f;
-                    break;
-                case 0:
+                case 0: // 微型
                     _height = 1;
                     sr.sprite = smallBody;
-                    jumpSpeed = 7.25f;
-                    fallingSpeed = 1.8f;
-                    fallingSpeedMax = 5f;
-                    raiseSpeed = 1.0f;
+                    jumpSpeed = smallStatus.jumpSpeed;
+                    fallingSpeed = smallStatus.fallingSpeed;
+                    fallingSpeedMax = smallStatus.fallingSpeedMax;
+                    raiseSpeed = smallStatus.raiseSpeed;
                     break;
-                case 2:
+                case 1: // 中型
+                    _height = 2;
+                    sr.sprite = normalBody;
+                    jumpSpeed = normalStatus.jumpSpeed;
+                    fallingSpeed = normalStatus.fallingSpeed;
+                    fallingSpeedMax = normalStatus.fallingSpeedMax;
+                    raiseSpeed = normalStatus.raiseSpeed;
+                    break;
+                case 2: // 大型
                     _height = 3;
                     sr.sprite = hugeBody;
-                    jumpSpeed = 7.25f;
-                    fallingSpeed = 3.6f;
-                    fallingSpeedMax = 20f;
-                    raiseSpeed = 2.0f;
+                    jumpSpeed = hugeStatus.jumpSpeed;
+                    fallingSpeed = hugeStatus.fallingSpeed;
+                    fallingSpeedMax = hugeStatus.fallingSpeedMax;
+                    raiseSpeed = hugeStatus.raiseSpeed;
                     break;
             }
 
@@ -254,6 +271,11 @@ namespace Jam {
 
                 rig.Jump(1, ref isJumping, jumpSpeed);
 
+                allowDebugFalling = true;
+
+                print("起点:" + transform.position);
+                maxHeight = 0;
+
                 EnterState(StateType.Jump);
 
             }
@@ -297,6 +319,16 @@ namespace Jam {
             if (coll.isOnGround) {
 
                 if (rig.velocity.y <= 0) {
+
+                    if (allowDebugFalling) {
+
+                        print("落点: " + transform.position);
+                        print("MaxHeight: " + maxHeight);
+
+                        allowDebugFalling = false;
+
+                    }
+
 
                     EnterState(StateType.Idle);
 

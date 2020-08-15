@@ -6,11 +6,17 @@ namespace Jam {
 
     public class BreakableWall : BlockBase {
 
+        bool isEntered = false;
+        public float fadeTime;
+        public float reshowWaitTime;
+
         protected override void PlayerEnter(ActorBase _actor) {
 
-            if (_actor.bodySize == 2) {
+            isEntered = true;
 
-                Destroy(gameObject);
+            if (_actor.bodySize == 1) {
+
+                Reshow(fadeTime/2f, fadeTime/2f, reshowWaitTime);
 
             }
 
@@ -18,12 +24,19 @@ namespace Jam {
 
         protected override void PlayerStay(ActorBase _actor) {
 
-            if (_actor.bodySize == 2) {
+            if (!isEntered) {
 
-                Destroy(gameObject);
-                
+                isEntered = true;
+
+                if (_actor.bodySize == 1) {
+
+                    Reshow(fadeTime/2f, fadeTime/2f, reshowWaitTime);
+
+                }
+
             }
 
         }
+
     }
 }
