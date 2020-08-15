@@ -12,10 +12,19 @@ namespace Jam {
         public MapGo currentMap;
         Dictionary<string, MapGo> mapDic;
         Dictionary<string, GameObject> mapPrefabDic;
+        public GameObject mapEditor;
         
         public Vector3 cameraOffset = Vector3.zero;
         public string startLevelId;
         Camera mainCam;
+
+        protected override void Awake() {
+
+            base.Awake();
+
+            Destroy(mapEditor);
+
+        }
 
         void Start() {
 
@@ -25,7 +34,7 @@ namespace Jam {
 
             mainCam = Camera.main;
             // cameraOffset = new Vector3(23.95f, 13.5f, -10);
-            cameraOffset = new Vector3(20, 11.25f, -10);
+            cameraOffset = new Vector3(20, 11.75f, -10);
 
             Application.targetFrameRate = 120;
 

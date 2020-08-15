@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 using JackUtil;
 
 namespace Jam {
@@ -238,6 +239,24 @@ namespace Jam {
         }
 
         public virtual bool AllowChangeBody() {
+
+            // MapGo _currentMap = App.Instance.currentMap;
+            // if (_currentMap == null) {
+            //     return true;
+            // }
+
+            // Vector3Int _gridPos = _currentMap.tilemap.GetTilePos(transform.position);
+            // TileBase _tileUp = _currentMap.tilemap.GetTile(_gridPos + new Vector3Int(0, 1, 0));
+            // TileBase _tileDown = _currentMap.tilemap.GetTile(_gridPos + new Vector3Int(0, -1, 0));
+            // if (_tileUp != null && _tileDown != null) {
+            //     DebugUtil.LogWarning("上下夹住，不可变身");
+            //     return false;
+            // }
+
+            if (coll.isOnCeiling && coll.isOnGround) {
+                // DebugUtil.Log("上下夹住，不可变身");
+                return false;
+            }
             return true;
         }
 

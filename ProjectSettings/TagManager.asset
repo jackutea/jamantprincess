@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Block
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - Player
   - Ground
-  - 
-  - 
-  - 
+  - Block
+  - Detector
+  - Trap
   - 
   - 
   - 

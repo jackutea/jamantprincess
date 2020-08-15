@@ -12,7 +12,7 @@ namespace Jam {
         public string levelId;
 
         Camera mainCam;
-        Tilemap tilemap;
+        public Tilemap tilemap;
 
         public Vector2 playerStartPos;
         public BoundsInt bounds;

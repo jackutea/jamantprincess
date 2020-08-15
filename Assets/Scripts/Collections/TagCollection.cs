@@ -10,6 +10,7 @@ namespace Jam {
 
         public const string playerTag = "Player";
         public const string blockTag = "Block";
+        public const string groundTag = "Ground";
 
     }
     

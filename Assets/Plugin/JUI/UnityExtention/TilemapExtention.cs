@@ -11,9 +11,9 @@ namespace JackUtil {
 
     public static class TilemapExtention {
 
-        public static Vector2Int GetMouseTilePos(this Tilemap _tileMap, Vector2 _worldMousePos) {
+        public static Vector3Int GetTilePos(this Tilemap _tileMap, Vector3 _worldPos) {
 
-            Vector2Int _pos = (Vector2Int)_tileMap.WorldToCell(_worldMousePos);
+            Vector3Int _pos = _tileMap.WorldToCell(_worldPos);
 
             return _pos;
 
