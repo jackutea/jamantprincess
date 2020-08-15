@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ChangeNormal",
+                    "type": "Button",
+                    "id": "1eae1907-6170-4fa6-a463-542f46ac9291",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -185,7 +193,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "jumpAxis",
+                    "name": "kJump",
                     "id": "a81c51d6-f433-4593-9f9e-0a7468c7663f",
                     "path": "1DAxis",
                     "interactions": "",
@@ -210,6 +218,39 @@
                     "name": "positive",
                     "id": "7f0f7c90-d961-485e-9af4-addc443ae77f",
                     "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "spaceJump",
+                    "id": "0b5990a7-9b9c-4559-b0a3-5a840753c57e",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "114ae316-ded3-4458-8b50-00ae453110ac",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "ea870189-7e80-459b-976b-da3e5636fff9",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -258,6 +299,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "ChangeSmaller",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "81280a76-40c6-4a25-8fd7-30c26593ebf7",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ChangeNormal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

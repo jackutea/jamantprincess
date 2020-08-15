@@ -134,7 +134,7 @@ namespace Jam {
             acceleteTime = 0.016f;
             deceleteTime = 0.008f;
 
-            jumpSpeed = 14.5f;
+            jumpSpeed = 15.5f;
             gravity = -18f;
             fallingSpeed = 3.6f;
             fallingSpeedMax = 20f;
@@ -145,22 +145,32 @@ namespace Jam {
 
         public virtual void ListenChangeBody() {
 
+            // Plan-A: Q E
+            // if (controller.changeBiggerAxis != 0) {
+
+            //     if (bodySize >= 2) {
+            //         ChangeBody(0);
+            //     } else {
+            //         ChangeBody(bodySize + 1);
+            //     }
+
+            // } else if (controller.changeSmallerAxis != 0) {
+
+            //     if (bodySize <= 0) {
+            //         ChangeBody(2);
+            //     } else {
+            //         ChangeBody(bodySize - 1);
+            //     }
+
+            // }
+            
+            // Plan-B: Q W E
             if (controller.changeBiggerAxis != 0) {
-
-                if (bodySize >= 2) {
-                    ChangeBody(0);
-                } else {
-                    ChangeBody(bodySize + 1);
-                }
-
+                ChangeBody(2);
             } else if (controller.changeSmallerAxis != 0) {
-
-                if (bodySize <= 0) {
-                    ChangeBody(2);
-                } else {
-                    ChangeBody(bodySize - 1);
-                }
-
+                ChangeBody(0);
+            } else if (controller.changeNormalAxis != 0) {
+                ChangeBody(1);
             }
 
         }
@@ -168,6 +178,7 @@ namespace Jam {
         public virtual void ChangeBody(int _size) {
 
             controller.changeBiggerAxis = 0;
+            controller.changeNormalAxis = 0;
             controller.changeSmallerAxis = 0;
 
             if (!AllowChangeBody()) return;
@@ -179,6 +190,7 @@ namespace Jam {
                 case 1:
                     _height = 2;
                     sr.sprite = normalBody;
+                    jumpSpeed = 15.5f;
                     fallingSpeed = 3.6f;
                     fallingSpeedMax = 20f;
                     raiseSpeed = 2.0f;
@@ -186,6 +198,7 @@ namespace Jam {
                 case 0:
                     _height = 1;
                     sr.sprite = smallBody;
+                    jumpSpeed = 7.25f;
                     fallingSpeed = 1.8f;
                     fallingSpeedMax = 5f;
                     raiseSpeed = 1.0f;
@@ -193,6 +206,7 @@ namespace Jam {
                 case 2:
                     _height = 3;
                     sr.sprite = hugeBody;
+                    jumpSpeed = 7.25f;
                     fallingSpeed = 3.6f;
                     fallingSpeedMax = 20f;
                     raiseSpeed = 2.0f;

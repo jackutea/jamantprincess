@@ -9,7 +9,7 @@ namespace Jam {
 
     public class MapGo : MonoBehaviour {
 
-        public string mapId;
+        public string levelId;
 
         Camera mainCam;
         Tilemap tilemap;

@@ -23,6 +23,7 @@ namespace Jam {
         [HideInInspector]
         public float castAxis;
         public float changeBiggerAxis;
+        public float changeNormalAxis;
         public float changeSmallerAxis;
 
         void Start() {
@@ -79,6 +80,12 @@ namespace Jam {
         void OnChangeBigger(InputValue _value) {
 
             changeBiggerAxis = 1;
+
+        }
+
+        void OnChangeNormal(InputValue _value) {
+
+            changeNormalAxis = 1;
 
         }
 
