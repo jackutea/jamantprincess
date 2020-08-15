@@ -31,11 +31,12 @@ namespace Jam {
 
         void OnDisable() {
 
-            print("dis");
+            if (jumpNotice == null) return;
 
             Destroy(jumpNotice.gameObject);
             Destroy(moveNotice.gameObject);
             Destroy(changeNotice.gameObject);
+
         }
     }
 }

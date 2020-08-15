@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f808655692f838a43b976b3ae771a5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0
-  reshowWaitTime: 0
+  fadeTime: 2
+  reshowWaitTime: 2
