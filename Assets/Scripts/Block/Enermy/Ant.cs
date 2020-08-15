@@ -4,14 +4,23 @@ using JackUtil;
 
 namespace Jam {
 
-    public class AntGround : BlockBase {
+    public class Ant : BlockBase {
 
-        Vector2 defalutPos;
+        public bool isFlying;
+        SpriteRenderer sr;
+        public Sprite groundAnt;
+        public Sprite flyAnt;
+
         public Vector2 moveOff;
+        Vector2 defalutPos;
 
         Sequence action;
 
+        [ContextMenu("ReAwake")]
         protected override void Awake() {
+
+            sr = GetComponent<SpriteRenderer>();
+            sr.sprite = isFlying ? flyAnt : groundAnt;
 
             defalutPos = transform.position;
 

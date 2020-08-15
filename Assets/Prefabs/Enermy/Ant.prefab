@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2787442392217130354}
   - component: {fileID: 2787442392217130353}
   m_Layer: 9
-  m_Name: AntGround
+  m_Name: Ant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,3 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb8ecdf9aebae9499727f02e2fa3cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFlying: 0
+  groundAnt: {fileID: 21300000, guid: da0b799a597da8140956745535334a42, type: 3}
+  flyAnt: {fileID: 21300000, guid: 36bdba8697964b9478940d4c6471abad, type: 3}
+  moveOff: {x: 1, y: 0}
