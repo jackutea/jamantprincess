@@ -27,15 +27,15 @@ namespace JackUtil {
 
         }
 
-        public static void FollowTargetLimited(this Camera _camera, Vector3 _targetPos, Vector3 _boundsCenter, BoundsInt _bounds, Vector3 _cameraOff, float _smoothDeltaTime = 0) {
+        public static void FollowTargetLimited(this Camera _camera, Vector3 _targetPos, Vector3 _leftBottomPos, BoundsInt _bounds, Vector3 _cameraOff, float _smoothDeltaTime = 0) {
 
             if (_smoothDeltaTime == 0) {
                 _smoothDeltaTime = Time.fixedDeltaTime * 3;
             }
 
             Vector3 _camPos = _camera.transform.position;
-            float _xLimit = Mathf.Clamp(_targetPos.x, _cameraOff.x + _boundsCenter.x, _bounds.size.x - _cameraOff.x + _boundsCenter.x);
-            float _yLimit = Mathf.Clamp(_targetPos.y, _cameraOff.y + _boundsCenter.y, _bounds.size.y - _cameraOff.y + _boundsCenter.y);
+            float _xLimit = Mathf.Clamp(_targetPos.x, _leftBottomPos.x + _cameraOff.x, _leftBottomPos.x + _bounds.size.x - _cameraOff.x);
+            float _yLimit = Mathf.Clamp(_targetPos.y, _leftBottomPos.y + _cameraOff.y, _leftBottomPos.y + _bounds.size.y - _cameraOff.y);
             _targetPos.Set(_xLimit, _yLimit, _camPos.z);
 
             _targetPos = Vector3.Lerp(_camPos, _targetPos, _smoothDeltaTime);

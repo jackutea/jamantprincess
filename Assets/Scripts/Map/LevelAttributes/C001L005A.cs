@@ -12,7 +12,7 @@ namespace Jam {
 
             notice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
             notice.transform.position = noticeTransform.position;
-            notice.AddContent("起跳时，从大切换至小体形，并按住\"K\"，可以提升跳跃高度");
+            notice.AddContent("起跳时，从大变小，可提升跳跃高度");
 
         }
 

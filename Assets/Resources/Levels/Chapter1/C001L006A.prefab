@@ -5848,7 +5848,7 @@ MonoBehaviour:
   playerStartPos: {x: 3, y: 2}
   bounds:
     m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 40, y: 22, z: 1}
+    m_Size: {x: 40, y: 23, z: 1}
 --- !u!1001 &4128270802064630991
 PrefabInstance:
   m_ObjectHideFlags: 0
