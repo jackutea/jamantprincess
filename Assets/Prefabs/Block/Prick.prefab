@@ -121,3 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9a0b99388b55248a75e2320e877585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: 21300000, guid: 482014ad99e829f4aadfd9d016d6d8bc, type: 3}
+  hiding: {fileID: 21300000, guid: 8b4316d351b7a124dab60037bb0beb00, type: 3}
+  isStatic: 1
+  gapTime: 0
