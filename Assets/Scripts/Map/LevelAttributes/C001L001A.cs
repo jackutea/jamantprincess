@@ -9,20 +9,33 @@ namespace Jam {
         public Transform jumpNoticeTransform;
         public Transform changeBodyNoticeTransform;
 
+        NoticeWindow jumpNotice;
+        NoticeWindow moveNotice;
+        NoticeWindow changeNotice;
+
         void Start() {
 
-            NoticeWindow _notice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
-            _notice.transform.position = jumpNoticeTransform.position;
-            _notice.AddContent("按\"K\"或\"空格\"跳跃");
+            jumpNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
+            jumpNotice.transform.position = jumpNoticeTransform.position;
+            jumpNotice.AddContent("按\"K\"或\"空格\"跳跃");
 
-            NoticeWindow _moveNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
-            _moveNotice.transform.position = moveNoticeTransform.position;
-            _moveNotice.AddContent("按\"WSAD\"移动");
+            moveNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
+            moveNotice.transform.position = moveNoticeTransform.position;
+            moveNotice.AddContent("按\"WSAD\"移动");
 
-            NoticeWindow _changeBodyNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
-            _changeBodyNotice.transform.position = changeBodyNoticeTransform.position;
-            _changeBodyNotice.AddContent("按\"L\"切换体形");
+            changeNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
+            changeNotice.transform.position = changeBodyNoticeTransform.position;
+            changeNotice.AddContent("按\"L\"切换体形");
 
+        }
+
+        void OnDisable() {
+
+            print("dis");
+
+            Destroy(jumpNotice.gameObject);
+            Destroy(moveNotice.gameObject);
+            Destroy(changeNotice.gameObject);
         }
     }
 }
