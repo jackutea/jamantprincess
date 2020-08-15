@@ -9,6 +9,7 @@ namespace Jam {
         public const int allowFalling = 4;
         public const int allowFallingWithoutRaise = 8;
         public const int allowGroundCheck = 16;
+        public const int allowChangeBody = 32;
 
     }
 

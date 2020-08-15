@@ -22,13 +22,23 @@ namespace Jam {
         public float exchangeAxis;
         [HideInInspector]
         public float castAxis;
+        public float changeBiggerAxis;
+        public float changeSmallerAxis;
 
         void Start() {
             actor = GetComponent<ActorBase>();
+            Reset();
+        }
+
+        public void Reset() {
+
             actAxis = 0;
             jumpAxis = 0;
             exchangeAxis = 0;
             castAxis = 0;
+            changeBiggerAxis = 0;
+            changeSmallerAxis = 0;
+
         }
 
         void OnMovement(InputValue _value) {
@@ -63,6 +73,18 @@ namespace Jam {
 
             exchangeAxis = 1;
             // print("OnExchange");
+
+        }
+
+        void OnChangeBigger(InputValue _value) {
+
+            changeBiggerAxis = 1;
+
+        }
+
+        void OnChangeSmaller(InputValue _value) {
+
+            changeSmallerAxis = 1;
 
         }
 

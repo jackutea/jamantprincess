@@ -11,14 +11,15 @@ namespace Jam {
         public ActorBase actor;
         public MapGo currentMap;
         
-        static Vector3 cameraOffset = Vector3.zero;
+        public Vector3 cameraOffset = Vector3.zero;
         Camera mainCam;
 
         protected override void Awake() {
 
             base.Awake();
 
-            cameraOffset = new Vector3(23.95f, 13.5f, -10);
+            // cameraOffset = new Vector3(23.95f, 13.5f, -10);
+            cameraOffset = new Vector3(15f, 8.5f, -10);
 
             mainCam = Camera.main;
 

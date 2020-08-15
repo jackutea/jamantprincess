@@ -44,6 +44,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ChangeBigger",
+                    "type": "Button",
+                    "id": "b087be6b-0da9-4f0e-ba2d-41a95005d6f4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ChangeSmaller",
+                    "type": "Button",
+                    "id": "9bcd2389-ebe0-470a-ad0f-0cd24ac7e445",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -220,6 +236,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Exchange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2e98eded-edc9-42af-b8f4-cc2844457851",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ChangeBigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8736196e-a583-4a6d-843f-78652eb68b25",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ChangeSmaller",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

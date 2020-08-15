@@ -13,6 +13,7 @@ namespace Jam {
         public override void Enter(ActorBase _actor) {
 
             _actor.allowState = AllowAction.allowMove
+                                + AllowAction.allowChangeBody
                                 + AllowAction.allowFalling
                                 + AllowAction.allowGroundCheck;
 

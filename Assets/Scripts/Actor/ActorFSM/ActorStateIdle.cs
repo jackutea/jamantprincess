@@ -14,6 +14,7 @@ namespace Jam {
 
             _actor.allowState = AllowAction.allowMove
                                 + AllowAction.allowJump
+                                + AllowAction.allowChangeBody
                                 + AllowAction.allowFalling
                                 + AllowAction.allowGroundCheck;
 

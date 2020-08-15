@@ -12,6 +12,11 @@ namespace Jam {
         Camera mainCam;
         public bool isFollowActor;
 
+        SpriteRenderer sr;
+        public Sprite normalBody;
+        public Sprite smallBody;
+        public Sprite hugeBody;
+
         FSMBase<ActorBase> fsm;
         Rigidbody2D rig;
 
@@ -42,9 +47,13 @@ namespace Jam {
         [HideInInspector]
         public bool isJumping;
 
+        public int bodySize;
+
         protected virtual void Awake() {
 
             mainCam = Camera.main;
+
+            sr = GetComponent<SpriteRenderer>();
 
             fsm = new FSMBase<ActorBase>(this);
             fsm.RegisterState(new ActorStateIdle());
@@ -88,6 +97,12 @@ namespace Jam {
 
             }
 
+            if ((allowState & AllowAction.allowChangeBody) != 0) {
+
+                ListenChangeBody();
+
+            }
+
             if ((allowState & AllowAction.allowFalling) != 0) {
 
                 Falling();
@@ -126,6 +141,64 @@ namespace Jam {
             raiseSpeed = 2.0f;
             isJumping = false;
 
+        }
+
+        public virtual void ListenChangeBody() {
+
+            if (controller.changeBiggerAxis != 0) {
+
+                if (bodySize >= 2) {
+                    ChangeBody(0);
+                } else {
+                    ChangeBody(bodySize + 1);
+                }
+
+            } else if (controller.changeSmallerAxis != 0) {
+
+                if (bodySize <= 0) {
+                    ChangeBody(2);
+                } else {
+                    ChangeBody(bodySize - 1);
+                }
+
+            }
+
+        }
+
+        public virtual void ChangeBody(int _size) {
+
+            controller.changeBiggerAxis = 0;
+            controller.changeSmallerAxis = 0;
+
+            if (!AllowChangeBody()) return;
+
+            bodySize = _size;
+            float _height = 0;
+
+            switch(bodySize) {
+                case 1:
+                    _height = 2;
+                    sr.sprite = normalBody;
+                    break;
+                case 0:
+                    _height = 1;
+                    sr.sprite = smallBody;
+                    break;
+                case 2:
+                    _height = 3;
+                    sr.sprite = hugeBody;
+                    break;
+            }
+
+            sr.drawMode = SpriteDrawMode.Tiled;
+            sr.size = new Vector2(1, _height);
+            coll.col.offset = new Vector2(0, _height / 2f);
+            (coll.col as CapsuleCollider2D).size = new Vector2(1, _height);
+
+        }
+
+        public virtual bool AllowChangeBody() {
+            return true;
         }
 
         public virtual void Move() {
