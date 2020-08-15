@@ -62,6 +62,7 @@ namespace Jam {
             _action.AppendInterval(waitTime);
             _action.AppendCallback(() => {
                 rig.gravityScale = fallingDir.y * fallingSpeed;
+                rig.velocity = new Vector2(fallingDir.x * fallingSpeed, rig.velocity.y);
                 _action = null;
             });
 
