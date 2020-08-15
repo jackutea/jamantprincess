@@ -9,10 +9,12 @@ namespace Jam {
 
     public class MapGo : MonoBehaviour {
 
+        public string mapId;
 
         Camera mainCam;
         Tilemap tilemap;
 
+        public Vector2 playerStartPos;
         public BoundsInt bounds;
 
         protected virtual void Awake() {

@@ -29,6 +29,24 @@ namespace Jam {
 
         }
 
+        public void InitLoadMap(string _mapId) {
+
+        }
+
+        public void ReloadMap() {
+
+            actor.enabled = false;
+            actor.Hide();
+
+            CurtainWindow _curtain = JUI.PopupCurtain(UIManager.Instance.uiCanvas);
+            _curtain.LeftToRight(() => {
+                actor.enabled = true;
+                actor.Show();
+                actor.transform.position = currentMap.playerStartPos;
+            }, 0.5f, 0.5f, 0.3f);
+
+        }
+
         void Update() {
 
             if (App.Instance.actor != null) {

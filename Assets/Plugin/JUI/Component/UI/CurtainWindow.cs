@@ -17,7 +17,7 @@ namespace JackUtil {
 
         }
 
-        public void LeftToRight(float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
+        public void LeftToRight(Action _callback = null, float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
 
             curtain.type = Image.Type.Filled;
 
@@ -32,13 +32,14 @@ namespace JackUtil {
             _action.AppendCallback(() => {
                 curtain.fillOrigin = (int)Image.OriginHorizontal.Right;
                 curtain.DOFillAmount(0, _openTime);
+                _callback?.Invoke();
                 _action.Kill();
                 _action = null;
             });
 
         }
 
-        public void RightToLeft(float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
+        public void RightToLeft(Action _callback = null, float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
 
             curtain.type = Image.Type.Filled;
 
@@ -53,13 +54,14 @@ namespace JackUtil {
             _action.AppendCallback(() => {
                 curtain.fillOrigin = (int)Image.OriginHorizontal.Left;
                 curtain.DOFillAmount(0, _openTime);
+                _callback?.Invoke();
                 _action.Kill();
                 _action = null;
             });
 
         }
 
-        public void TopToBottom(float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
+        public void TopToBottom(Action _callback = null, float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
 
             curtain.type = Image.Type.Filled;
 
@@ -74,13 +76,14 @@ namespace JackUtil {
             _action.AppendCallback(() => {
                 curtain.fillOrigin = (int)Image.OriginVertical.Bottom;
                 curtain.DOFillAmount(0, _openTime);
+                _callback?.Invoke();
                 _action.Kill();
                 _action = null;
             });
 
         }
 
-        public void BottomToTop(float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
+        public void BottomToTop(Action _callback = null, float _closeTime = 1.5f, float _waitTime = 1.5f, float _openTime = 1f) {
 
             curtain.type = Image.Type.Filled;
 
@@ -95,6 +98,7 @@ namespace JackUtil {
             _action.AppendCallback(() => {
                 curtain.fillOrigin = (int)Image.OriginVertical.Top;
                 curtain.DOFillAmount(0, _openTime);
+                _callback?.Invoke();
                 _action.Kill();
                 _action = null;
             });

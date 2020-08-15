@@ -179,14 +179,23 @@ namespace Jam {
                 case 1:
                     _height = 2;
                     sr.sprite = normalBody;
+                    fallingSpeed = 3.6f;
+                    fallingSpeedMax = 20f;
+                    raiseSpeed = 2.0f;
                     break;
                 case 0:
                     _height = 1;
                     sr.sprite = smallBody;
+                    fallingSpeed = 1.8f;
+                    fallingSpeedMax = 5f;
+                    raiseSpeed = 1.0f;
                     break;
                 case 2:
                     _height = 3;
                     sr.sprite = hugeBody;
+                    fallingSpeed = 3.6f;
+                    fallingSpeedMax = 20f;
+                    raiseSpeed = 2.0f;
                     break;
             }
 
@@ -285,6 +294,12 @@ namespace Jam {
 
         protected virtual void EnterState(StateType _type) {
             fsm.EnterState(_type.ToInt());
+        }
+
+        public virtual void Dead() {
+
+            App.Instance.ReloadMap();
+
         }
 
     }
