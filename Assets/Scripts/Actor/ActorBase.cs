@@ -19,7 +19,8 @@ namespace Jam {
         public Sprite hugeBody;
 
         FSMBase<ActorBase> fsm;
-        Rigidbody2D rig;
+        [HideInInspector]
+        public Rigidbody2D rig;
 
         [HideInInspector]
         public ActorController controller;
@@ -66,6 +67,7 @@ namespace Jam {
             fsm = new FSMBase<ActorBase>(this);
             fsm.RegisterState(new ActorStateIdle());
             fsm.RegisterState(new ActorStateJump());
+            fsm.RegisterState(new ActorStateForceJump());
             fsm.currentState.Enter(this);
 
             controller = GetComponent<ActorController>();
@@ -87,6 +89,12 @@ namespace Jam {
             if (fsm != null) {
 
                 fsm.Execute();
+
+            }
+
+            if (rig.velocity.magnitude != 0) {
+
+                CheckDead();
 
             }
 
@@ -357,8 +365,23 @@ namespace Jam {
 
         }
 
-        protected virtual void EnterState(StateType _type) {
+        public virtual void EnterState(StateType _type) {
             fsm.EnterState(_type.ToInt());
+        }
+
+        public virtual void CheckDead() {
+
+            MapGo _map = App.Instance.currentMap;
+
+            if (_map != null) {
+
+                if (transform.position.y < _map.transform.position.y) {
+
+                    Dead();
+                    
+                }
+
+            }
         }
 
         public virtual void Dead() {

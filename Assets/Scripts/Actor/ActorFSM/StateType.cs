@@ -6,6 +6,7 @@ namespace Jam {
 
         Idle,
         Jump,
+        ForceJump,
 
     }
 

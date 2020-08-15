@@ -57,6 +57,7 @@ namespace Jam {
             for (int i = 0; i < _prefabArray.Length; i += 1) {
                 GameObject _prefab = _prefabArray[i];
                 GameObject _go = Instantiate(_prefab);
+                _go.SetActive(false);
                 MapGo _mapGo = _go.GetComponentInChildren<MapGo>();
                 mapDic.Add(_mapGo.levelId, _mapGo);
                 mapPrefabDic.Add(_mapGo.levelId, _prefab);
@@ -68,8 +69,7 @@ namespace Jam {
 
             if (currentMap != null) {
 
-                currentMap.enabled = false;
-                currentMap.Hide();
+                currentMap.transform.parent.gameObject.SetActive(false);
 
             }
 
@@ -78,8 +78,7 @@ namespace Jam {
                 DebugUtil.LogError("StartLevelId输入错误: " + startLevelId);
                 return;
             }
-            currentMap.enabled = true;
-            currentMap.Show();
+            currentMap.transform.parent.gameObject.SetActive(true);
 
             ReloadMap();
 
@@ -109,6 +108,9 @@ namespace Jam {
             _curtain.LeftToRight(() => {
                 actor.enabled = true;
                 actor.Show();
+                actor.EnterState(StateType.Idle);
+                actor.rig.velocity = Vector2.zero;
+                actor.controller.Reset();
                 actor.transform.position = currentMap.playerStartPos;
             }, 0.5f, 0.5f, 0.3f);
 

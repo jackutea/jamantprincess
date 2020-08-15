@@ -33,6 +33,7 @@ namespace Jam {
 
         public void Reset() {
 
+            moveAxis = Vector2.zero;
             actAxis = 0;
             jumpAxis = 0;
             exchangeAxis = 0;
@@ -94,7 +95,7 @@ namespace Jam {
             if (moveAxis.x > 0 && jumpAxis != 0) {
 
                 print("SmallerAxis");
-                
+
             }
 
             changeSmallerAxis = 1;
