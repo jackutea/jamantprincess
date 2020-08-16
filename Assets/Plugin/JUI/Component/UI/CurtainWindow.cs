@@ -31,7 +31,9 @@ namespace JackUtil {
             _action.AppendInterval(_waitTime);
             _action.AppendCallback(() => {
                 curtain.fillOrigin = (int)Image.OriginHorizontal.Right;
-                curtain.DOFillAmount(0, _openTime);
+            });
+            _action.Append(curtain.DOFillAmount(0, _openTime));
+            _action.AppendCallback(() => {
                 _callback?.Invoke();
                 _action.Kill();
             });

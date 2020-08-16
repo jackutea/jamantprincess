@@ -110,8 +110,9 @@ namespace Jam {
                 actor.rig.velocity = Vector2.zero;
                 actor.controller.Reset();
                 actor.transform.position = currentMap.playerStartPos;
+                UIManager.Instance.EnterGame();
                 Destroy(_curtain.gameObject);
-            }, 0.5f, 0.5f, 0.3f);
+            }, 0.5f, 0.5f, 0.5f);
 
         }
 

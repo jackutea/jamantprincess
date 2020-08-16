@@ -14,10 +14,27 @@ namespace Jam {
         public Canvas worldCanvas;
 
         public DialogWindow dialog;
+
+        public TitlePanel titlePanel;
+        public GamePanel gamePanel;
         
         protected override void Awake() {
 
             base.Awake();
+
+        }
+
+        public void EnterTitle() {
+
+            titlePanel.gameObject.SetActive(true);
+            gamePanel.gameObject.SetActive(false);
+
+        }
+
+        public void EnterGame() {
+
+            titlePanel.gameObject.SetActive(false);
+            gamePanel.gameObject.SetActive(true);
 
         }
 
