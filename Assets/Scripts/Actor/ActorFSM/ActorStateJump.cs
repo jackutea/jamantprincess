@@ -12,6 +12,8 @@ namespace Jam {
 
         public override void Enter(ActorBase _actor) {
 
+            AudioManager.Instance.Play(AudioType.Jump);
+
             _actor.allowState = AllowAction.allowMove
                                 + AllowAction.allowChangeBody
                                 + AllowAction.allowFalling
@@ -20,6 +22,16 @@ namespace Jam {
         }
 
         public override void Execute(ActorBase _actor) {
+
+            if (_actor.bodySize == 0) {
+
+                _actor.ani.SetBool("IsSmallJumping", true);
+
+            } else {
+
+                _actor.ani.SetBool("IsBigJumping", true);
+
+            }
 
         }
 

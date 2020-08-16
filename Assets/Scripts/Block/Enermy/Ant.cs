@@ -48,10 +48,13 @@ namespace Jam {
 
                 _actor.Dead();
 
-            }
+            } else {
 
-            _actor.rig.velocity = new Vector2(_actor.rig.velocity.x, bouncePower);
-            _actor.EnterState(StateType.ForceJump);
+                _actor.rig.velocity = new Vector2(_actor.rig.velocity.x, bouncePower);
+                _actor.EnterState(StateType.ForceJump);
+                AudioManager.Instance.Play(AudioType.Kill);
+
+            }
 
             // action.Kill();
             Reshow(0, 0, 2f);

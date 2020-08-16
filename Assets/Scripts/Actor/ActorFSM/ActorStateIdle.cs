@@ -22,6 +22,53 @@ namespace Jam {
 
         public override void Execute(ActorBase _actor) {
 
+            bool _isrunning = false;
+
+            if (_actor.bodySize == 0) {
+
+                _actor.ani.SetBool("IsSmallJumping", false);
+
+            } else {
+
+                _actor.ani.SetBool("IsBigJumping", false);
+
+            }
+
+            if (_actor.controller.moveAxis.x != 0) {
+
+                _isrunning = true;
+
+                if (_actor.bodySize == 0) {
+
+                    _actor.ani.SetBool("IsSmallRunning", true);
+
+                } else {
+
+                    _actor.ani.SetBool("IsBigRunning", true);
+
+                }
+
+
+            } else {
+
+                if (_actor.bodySize == 0) {
+
+                    _actor.ani.SetBool("IsSmallRunning", false);
+
+                } else {
+
+                    _actor.ani.SetBool("IsBigRunning", false);
+                    
+                }
+
+            }
+
+            if (_isrunning) {
+
+                AudioManager.Instance.Play(AudioType.Walk);
+
+            }
+
         }
 
         public override void Exit(ActorBase _actor) {

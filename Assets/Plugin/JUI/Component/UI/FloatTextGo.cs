@@ -17,6 +17,12 @@ namespace JackUtil {
 
         }
 
+        public void SetText(string _msg) {
+
+            text.text = _msg;
+            
+        }
+
         public void FlyUp(Vector2 _position, Color _color) {
 
             RectTransform _rt = GetComponent<RectTransform>();

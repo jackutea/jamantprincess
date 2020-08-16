@@ -55,6 +55,7 @@ namespace Jam {
                 });
                 action.Append(transform.DOShakeRotation(1, 6, 6, 1, false));
                 action.AppendCallback(() => {
+                    AudioManager.Instance.Play(AudioType.Broken);
                     Reshow(0, 0, reshowWaitTime, () => {
                         sr.sprite = startBreaking;
                         isEntered = false;

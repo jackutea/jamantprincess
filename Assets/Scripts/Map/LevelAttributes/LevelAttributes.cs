@@ -10,8 +10,10 @@ namespace Jam {
 
         public void TransLevel(string _levelId) {
 
+            AudioManager.Instance.Play(AudioType.TransDoor);
+
             App.Instance.LoadMap(_levelId);
-            
+
         }
     }
 }

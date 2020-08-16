@@ -61,6 +61,10 @@ namespace Jam {
             if (Input.GetKeyUp(KeyCode.Home)) {
 
                 isCheat = !isCheat;
+                string _msg = isCheat ? "开启作弊模式" : "关闭作弊模式";
+                FloatTextGo _float = JUI.PopupFloatText(UIManager.Instance.worldCanvas);
+                _float.SetText(_msg);
+                _float.FlyUp(actor.transform.position, Color.red);
 
             }
 

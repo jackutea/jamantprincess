@@ -102,6 +102,13 @@ namespace Jam {
 
         protected virtual void FixedUpdate() {
 
+            // if (ani != null) {
+
+            //     bool _isBig = bodySize == 1 ? true : false;
+            //     ani.SetBool("IsBig", _isBig);
+
+            // }
+
             if (transform.position.y > maxHeight) {
                 maxHeight = transform.position.y;
             }
@@ -222,6 +229,8 @@ namespace Jam {
                     fallingSpeed = smallStatus.fallingSpeed;
                     fallingSpeedMax = smallStatus.fallingSpeedMax;
                     raiseSpeed = smallStatus.raiseSpeed;
+                    ani.Play("SmallIdle");
+                    // ani.SetBool("IsBig", false);
                     break;
                 case 1: // 中型
                     _height = 2;
@@ -232,6 +241,8 @@ namespace Jam {
                     fallingSpeed = normalStatus.fallingSpeed;
                     fallingSpeedMax = normalStatus.fallingSpeedMax;
                     raiseSpeed = normalStatus.raiseSpeed;
+                    ani.Play("BigIdle");
+                    // ani.SetBool("IsBig", true);
                     break;
                 case 2: // 大型
                     _height = 3;
@@ -245,7 +256,9 @@ namespace Jam {
 
             sr.drawMode = SpriteDrawMode.Tiled;
             sr.size = new Vector2(1, _height);
-            
+
+            // bool _isBig = bodySize == 1 ? true : false;
+            // ani.SetBool("IsBig", _isBig);
 
         }
 
@@ -389,7 +402,7 @@ namespace Jam {
 
         public virtual void Dead() {
 
-            print("Dead");
+            AudioManager.Instance.Play(AudioType.FallingWall);
 
             App.Instance.ReloadMap();
 
