@@ -84,6 +84,14 @@ namespace Jam {
 
         }
 
+        void OnEnable() {
+            if (bodySize == 0) {
+                ani.Play("SmallIdle");
+            } else {
+                ani.Play("BigIdle");
+            }
+        }
+
         protected virtual void Update() {
 
             if (fsm != null) {
@@ -256,6 +264,8 @@ namespace Jam {
 
             sr.drawMode = SpriteDrawMode.Tiled;
             sr.size = new Vector2(1, _height);
+
+            AudioManager.Instance.Play(AudioType.Change);
 
             // bool _isBig = bodySize == 1 ? true : false;
             // ani.SetBool("IsBig", _isBig);

@@ -17,7 +17,7 @@ namespace Jam {
 
             jumpNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
             jumpNotice.transform.position = jumpNoticeTransform.position;
-            jumpNotice.AddContent("按\"K\"或\"空格\"跳跃");
+            jumpNotice.AddContent("按\"K\"跳跃");
 
             moveNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
             moveNotice.transform.position = moveNoticeTransform.position;
@@ -25,7 +25,7 @@ namespace Jam {
 
             changeNotice = JUI.PopupNotice(UIManager.Instance.worldCanvas);
             changeNotice.transform.position = changeBodyNoticeTransform.position;
-            changeNotice.AddContent("按\"L\"切换体形");
+            changeNotice.AddContent("按\"J\"切换体形");
 
         }
 

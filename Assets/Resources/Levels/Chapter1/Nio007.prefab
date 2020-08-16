@@ -2963,27 +2963,27 @@ PrefabInstance:
     - target: {fileID: 398189598635187378, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 398189598635187378, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 398189598635187379, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 398189598635187379, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 398189598635187380, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 398189598635187380, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
@@ -3105,7 +3105,7 @@ PrefabInstance:
     - target: {fileID: 8690275073478343340, guid: 4cc4c5156744da64eb1193826a18f1c8,
         type: 3}
       propertyPath: enterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: C001L002A
+      value: Ben001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cc4c5156744da64eb1193826a18f1c8, type: 3}

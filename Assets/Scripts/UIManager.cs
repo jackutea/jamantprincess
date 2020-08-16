@@ -28,6 +28,7 @@ namespace Jam {
 
             titlePanel.gameObject.SetActive(true);
             gamePanel.gameObject.SetActive(false);
+            AudioManager.Instance.PlayBGM(false);
 
         }
 
@@ -35,6 +36,7 @@ namespace Jam {
 
             titlePanel.gameObject.SetActive(false);
             gamePanel.gameObject.SetActive(true);
+            AudioManager.Instance.PlayBGM(true);
 
         }
 

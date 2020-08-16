@@ -14,12 +14,14 @@ namespace Jam {
         FallingWall,
         Jump,
         TransDoor,
+        Change,
+
     }
 
     public class AudioManager : Singleton<AudioManager> {
 
-        [HideInInspector]
         public AudioSource audioPlayer;
+        public AudioSource bgmPlayer;
 
         public AudioClip BGM;
         public AudioClip kill;
@@ -33,23 +35,39 @@ namespace Jam {
 
             base.Awake();
 
-            audioPlayer = GetComponent<AudioSource>();
-
         }
 
         void Update() {
 
         }
 
+        public void PlayBGM(bool _isstart) {
+
+            if (_isstart) {
+
+                bgmPlayer.Stop();
+
+            } else {
+
+                bgmPlayer.clip = BGM;
+                bgmPlayer.Play();
+
+            }
+
+        }
+
         public void Play(AudioType _audio) {
+
+            audioPlayer.volume = 1;
 
             switch(_audio) {
                 case AudioType.Broken: audioPlayer.clip = broken; audioPlayer.loop = false; break;
                 case AudioType.Kill: audioPlayer.clip = kill; audioPlayer.loop = false; break;
-                case AudioType.Walk: audioPlayer.clip = walk; audioPlayer.loop = false; break;
+                case AudioType.Walk: audioPlayer.clip = walk; audioPlayer.loop = false; audioPlayer.volume = 0.05f; break;
                 case AudioType.FallingWall: audioPlayer.clip = fallingWall; audioPlayer.loop = false; break;
                 case AudioType.Jump: audioPlayer.clip = jump; audioPlayer.loop = false; break;
                 case AudioType.TransDoor: audioPlayer.clip = transDoor; audioPlayer.loop = false; break;
+                case AudioType.Change: audioPlayer.clip = walk; audioPlayer.loop = false; break;
                 default: DebugUtil.Log("错误类型"); break;
             }
 
