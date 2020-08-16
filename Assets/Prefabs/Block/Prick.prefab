@@ -123,5 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normal: {fileID: 21300000, guid: 482014ad99e829f4aadfd9d016d6d8bc, type: 3}
   hiding: {fileID: 21300000, guid: 8b4316d351b7a124dab60037bb0beb00, type: 3}
+  startHiding: 0
   isStatic: 1
   gapTime: 0

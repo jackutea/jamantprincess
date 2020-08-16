@@ -40,10 +40,10 @@ namespace Jam {
 
             DontDestroyOnLoad(gameObject);
 
-            actor.enabled = false;
             actor.Hide();
 
-            LoadMap(startLevelId);
+            // Todo
+            // LoadMap(startLevelId);
 
         }
 
@@ -101,17 +101,16 @@ namespace Jam {
             mapDic.AddOrReplace(_currentMapId, _mapGo);
             currentMap = _mapGo;
 
-            actor.enabled = false;
             actor.Hide();
 
             CurtainWindow _curtain = JUI.PopupCurtain(UIManager.Instance.uiCanvas);
             _curtain.LeftToRight(() => {
-                actor.enabled = true;
                 actor.Show();
                 actor.EnterState(StateType.Idle);
                 actor.rig.velocity = Vector2.zero;
                 actor.controller.Reset();
                 actor.transform.position = currentMap.playerStartPos;
+                Destroy(_curtain.gameObject);
             }, 0.5f, 0.5f, 0.3f);
 
         }

@@ -39,8 +39,6 @@ namespace Jam {
 
             action.AppendCallback(() => {
 
-                print("Shoot");
-
                 Bullet _bullet = Instantiate(bulletPrefab, transform.parent);
                 _bullet.fallingDir = shootDir;
                 _bullet.fallingSpeed = shootSpeed;
