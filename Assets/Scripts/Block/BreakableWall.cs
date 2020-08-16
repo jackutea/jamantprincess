@@ -6,7 +6,6 @@ namespace Jam {
 
     public class BreakableWall : BlockBase {
 
-        public Sprite basic;
         public Sprite startBreaking;
         public Sprite failed;
 
@@ -57,7 +56,7 @@ namespace Jam {
                 action.Append(transform.DOShakeRotation(1, 6, 6, 1, false));
                 action.AppendCallback(() => {
                     Reshow(0, 0, reshowWaitTime, () => {
-                        sr.sprite = basic;
+                        sr.sprite = startBreaking;
                         isEntered = false;
                     });
                 });

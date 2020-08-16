@@ -8,6 +8,9 @@ namespace Jam {
 
     public class PrefabCollection : Singleton<PrefabCollection> {
         
+        public FallingPrick prickPrefab;
+        public Bullet bulletPrefab;
+
     }
     
 }

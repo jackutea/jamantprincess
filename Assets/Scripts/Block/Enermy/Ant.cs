@@ -12,6 +12,8 @@ namespace Jam {
 
         public Vector2 moveOff;
         Vector2 defalutPos;
+        public float bouncePower;
+        public float moveSpeed;
 
         Sequence action;
 
@@ -25,11 +27,17 @@ namespace Jam {
 
             defalutPos = transform.position;
 
+            if (moveSpeed == 0) {
+                moveSpeed = 1;
+            } else {
+                moveSpeed = Mathf.Abs(moveSpeed);
+            }
+
             action = DOTween.Sequence();
             action.AppendInterval(0.4f);
-            action.Append(transform.DOMove(defalutPos + moveOff, 0.4f));
+            action.Append(transform.DOMove(defalutPos + moveOff, moveOff.magnitude / moveSpeed));
             action.AppendInterval(0.4f);
-            action.Append(transform.DOMove(defalutPos, 0.4f));
+            action.Append(transform.DOMove(defalutPos, moveOff.magnitude / moveSpeed));
             action.SetLoops(-1);
 
         }
@@ -40,12 +48,13 @@ namespace Jam {
 
                 _actor.Dead();
 
-            } else {
-
             }
 
-            action.Kill();
-            Destroy(gameObject);
+            _actor.rig.velocity = new Vector2(_actor.rig.velocity.x, bouncePower);
+            _actor.EnterState(StateType.ForceJump);
+
+            // action.Kill();
+            Reshow(0, 0, 2f);
 
         }
 

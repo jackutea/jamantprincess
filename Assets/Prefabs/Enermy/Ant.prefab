@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e8d4745b5a68f714da23c45d75f11468, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 33960986ea0968e409f774457489c3e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2787442392217130357}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 514c89be292e1c44d8f16eaa835dea00, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFlying: 0
-  groundAnt: {fileID: 21300000, guid: da0b799a597da8140956745535334a42, type: 3}
-  flyAnt: {fileID: 21300000, guid: 36bdba8697964b9478940d4c6471abad, type: 3}
+  groundAnt: {fileID: 21300000, guid: 33960986ea0968e409f774457489c3e0, type: 3}
+  flyAnt: {fileID: 21300000, guid: 50a4ec13abebe84429d343b881f79021, type: 3}
   moveOff: {x: 1, y: 0}
+  bouncePower: 45
+  moveSpeed: 2

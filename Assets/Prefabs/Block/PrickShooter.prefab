@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8599274327491267283
+--- !u!1 &1213125347204971349
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8599274327491267282}
-  - component: {fileID: 8599274327491267293}
-  - component: {fileID: 8599274327491267292}
-  - component: {fileID: 8599274327491267295}
-  m_Layer: 10
-  m_Name: BreakableWall
+  - component: {fileID: 1213125347204971348}
+  - component: {fileID: 1213125347204971350}
+  - component: {fileID: 1213125347204971351}
+  m_Layer: 9
+  m_Name: PrickShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8599274327491267282
+--- !u!4 &1213125347204971348
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599274327491267283}
+  m_GameObject: {fileID: 1213125347204971349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29, y: 40, z: 0}
+  m_LocalPosition: {x: 38, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8599274327491267293
+--- !u!212 &1213125347204971350
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599274327491267283}
+  m_GameObject: {fileID: 1213125347204971349}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,57 +71,30 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 548220477e611b141bdb7c7f3c069197, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cabce54b938a49740a40c54850419eed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 3, y: 1}
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8599274327491267292
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599274327491267283}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 3, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 2
-    adaptiveTiling: 0
-  m_AutoTiling: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &8599274327491267295
+--- !u!114 &1213125347204971351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599274327491267283}
+  m_GameObject: {fileID: 1213125347204971349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f808655692f838a43b976b3ae771a5d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d8fa66ddd3497c429009b89f5800d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basic: {fileID: 21300000, guid: 2c324ed13bc34a8449f9ef075e868ffe, type: 3}
-  startBreaking: {fileID: 21300000, guid: 548220477e611b141bdb7c7f3c069197, type: 3}
-  failed: {fileID: 21300000, guid: 821e1457529bf754dbfceff90733b33e, type: 3}
-  fadeTime: 2
-  reshowWaitTime: 2
+  shootDir: {x: -1, y: 0}
+  shootSpeed: 10
+  gapTime: 2
+  isActivated: 1
