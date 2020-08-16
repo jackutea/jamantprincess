@@ -43,6 +43,8 @@ namespace Jam {
 
         public void PlayBGM(bool _isstart) {
 
+            bgmPlayer.volume = 0.2f;
+
             if (!_isstart) {
 
                 bgmPlayer.Stop();
@@ -58,7 +60,7 @@ namespace Jam {
 
         public void Play(AudioType _audio) {
 
-            audioPlayer.volume = 1;
+            audioPlayer.volume = 0.5f;
 
             switch(_audio) {
                 case AudioType.Broken: audioPlayer.clip = broken; audioPlayer.loop = false; break;
