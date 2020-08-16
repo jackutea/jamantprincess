@@ -18,6 +18,9 @@ namespace Jam {
         public string startLevelId;
         Camera mainCam;
 
+        bool isCheat = false;
+        public string cheatKey = string.Empty;
+
         protected override void Awake() {
 
             base.Awake();
@@ -45,6 +48,69 @@ namespace Jam {
             // Todo
             // LoadMap(startLevelId);
 
+        }
+
+        void Update() {
+
+            if (App.Instance.actor != null && currentMap != null) {
+
+                mainCam.FollowTargetLimited(App.Instance.actor.transform.position, currentMap.transform.position, currentMap.bounds, cameraOffset, 1f);
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.Home)) {
+
+                isCheat = !isCheat;
+
+            }
+
+            if (!isCheat) {
+                return;
+            }
+
+            if (Input.GetKeyUp(KeyCode.Insert)) {
+
+                if (cheatKey.Length > 2) {
+
+                    string _c = string.Empty;
+                    cheatKey = cheatKey.ToLower();
+                    _c = (cheatKey.ToUpper()[0]).ToString();
+                    _c += cheatKey.Substring(1, cheatKey.Length - 1);
+
+                    print(_c);
+
+                    List<string> _mapId = new List<string>(mapPrefabDic.Keys);
+                    foreach (string _str in _mapId) {
+                        if (_str == _c) {
+                            LoadMap(_str);
+                            cheatKey = string.Empty;
+                            return;
+                        }
+                    }
+
+                }
+
+                cheatKey = string.Empty;
+
+            }
+
+            if (Input.anyKey) {
+
+                foreach (KeyCode _kc in Enum.GetValues(typeof(KeyCode))) {
+
+                    if (Input.GetKeyDown(_kc)) {
+                        string _k = _kc.ToString();
+                        if (_k.Contains("Alpha")) {
+                            _k = _k.Replace("Alpha", "");
+                        }
+                        if (_k.Contains("Insert")) {
+                            continue;
+                        }
+                        cheatKey += _k;
+                    }
+                }
+
+            }
         }
 
         void InitMapDic() {
@@ -113,16 +179,6 @@ namespace Jam {
                 UIManager.Instance.EnterGame();
                 Destroy(_curtain.gameObject);
             }, 0.5f, 0.5f, 0.5f);
-
-        }
-
-        void Update() {
-
-            if (App.Instance.actor != null && currentMap != null) {
-
-                mainCam.FollowTargetLimited(App.Instance.actor.transform.position, currentMap.transform.position, currentMap.bounds, cameraOffset, 1f);
-
-            }
 
         }
 
