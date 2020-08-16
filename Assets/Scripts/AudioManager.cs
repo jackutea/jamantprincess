@@ -63,7 +63,7 @@ namespace Jam {
             switch(_audio) {
                 case AudioType.Broken: audioPlayer.clip = broken; audioPlayer.loop = false; break;
                 case AudioType.Kill: audioPlayer.clip = kill; audioPlayer.loop = false; break;
-                case AudioType.Walk: audioPlayer.clip = walk; audioPlayer.loop = false; audioPlayer.volume = 0.05f; break;
+                case AudioType.Walk: return;
                 case AudioType.FallingWall: audioPlayer.clip = fallingWall; audioPlayer.loop = false; break;
                 case AudioType.Jump: audioPlayer.clip = jump; audioPlayer.loop = false; break;
                 case AudioType.TransDoor: audioPlayer.clip = transDoor; audioPlayer.loop = false; break;
@@ -72,13 +72,14 @@ namespace Jam {
             }
 
             // print("Player" + _audio.ToString());
-            if (audioPlayer.clip == walk) {
-                if (!audioPlayer.isPlaying) {
-                    audioPlayer.Play(); 
-                }
-            } else {
-                audioPlayer.Play(); 
-            }
+            // if (audioPlayer.clip == walk) {
+            //     if (!audioPlayer.isPlaying) {
+            //         audioPlayer.Play(); 
+            //     }
+            //     return;
+            // }
+
+            audioPlayer.Play(); 
 
         }
 
