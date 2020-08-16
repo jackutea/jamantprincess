@@ -15,6 +15,7 @@ namespace Jam {
             });
             _dialog.AddContent(true, "感谢试玩~\n游戏Demo暂时只做到这里");
             _dialog.AddContent(true, "祝您身心健康!");
+            _dialog.NextContent();
 
         }
     }
