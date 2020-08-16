@@ -4353,6 +4353,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ant (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2787442392217130357, guid: 05fa5edec30ed1e4b96fdece36d4d4b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05fa5edec30ed1e4b96fdece36d4d4b6, type: 3}
 --- !u!4 &4578837942983260106 stripped
@@ -5062,7 +5067,7 @@ PrefabInstance:
     - target: {fileID: 8599274327491267282, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8599274327491267282, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
@@ -5122,12 +5127,12 @@ PrefabInstance:
     - target: {fileID: 8599274327491267292, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8599274327491267293, guid: 1dc4a8f703d140c4cb439f181bb52c99,
         type: 3}
       propertyPath: m_Size.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dc4a8f703d140c4cb439f181bb52c99, type: 3}

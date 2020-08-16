@@ -2771,7 +2771,7 @@ MonoBehaviour:
   currentMap: {fileID: 1510462115}
   mapEditor: {fileID: 419769832}
   cameraOffset: {x: 0, y: 0, z: 0}
-  startLevelId: Nio001
+  startLevelId: Foo005
   cheatKey: 
 --- !u!4 &1957410258 stripped
 Transform:
