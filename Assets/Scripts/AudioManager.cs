@@ -43,7 +43,7 @@ namespace Jam {
 
         public void PlayBGM(bool _isstart) {
 
-            if (_isstart) {
+            if (!_isstart) {
 
                 bgmPlayer.Stop();
 
